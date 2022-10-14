@@ -1,0 +1,74 @@
+@forward "./base/index";
+@use "./util/index" as variable;
+
+.btn {
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: red;
+  cursor: pointer;
+}
+
+.btn-download {
+  @extend .btn;
+  background-color: blueviolet;
+}
+.learn-more {
+  @extend .btn;
+  background-color: black;
+}
+
+@mixin para-style($size, $align) {
+  font-size: $size;
+  text-align: $align;
+  font-family: "Courier New", Courier, monospace;
+  margin: 10px 0;
+}
+
+header {
+  background-color: variable.$headerBgColor;
+}
+
+// nav style
+nav {
+  margin-top: 15px;
+  text-align: center;
+  ul {
+    // list-style: none;
+    li {
+      display: inline-block;
+      margin: 0 10px;
+      a {
+        display: inline-block;
+        color: #ffffff;
+        padding: 7px 12px;
+        transition: 0.3s;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 400;
+        &:hover {
+          color: yellow;
+          background-color: black;
+        }
+      }
+    }
+  }
+}
+
+#about p {
+  @include para-style(18px, justify);
+}
+
+#education p {
+  @include para-style(14px, right);
+}
+main {
+  background-color: variable.$mainBgColor;
+}
+footer {
+  background-color: variable.$footerBgColor;
+  text-align: center;
+}
